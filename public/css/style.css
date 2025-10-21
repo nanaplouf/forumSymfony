@@ -1,0 +1,21 @@
+@import url("https://fonts.googleapis.com/css2?family=Slackey&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poiret+One&family=Slackey&display=swap");
+body {
+    background-image: url("/img/bgcat.jpeg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    font-family: "Poiret One", sans-serif;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+    color: rgb(55, 41, 32);
+    font-family: "Slackey", sans-serif;
+    background-color: rgba(240, 248, 255, 0.503);
+    text-align: center;
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
