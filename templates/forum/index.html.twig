@@ -2,6 +2,13 @@
 
 {% block body %}
 
-    <h1>Forum T'chaton ensemble ! 😺</h1>
+    
+    {% if app.user %}
+        <h1>Bonjour,{{ app.user.userIdentifier }},  T'chaton ensemble ! 😺</h1>
+    {% else %}
+        <h1>Forum T'chaton ensemble ! 😺</h1>
+    {% endif %}
+
+        
 
 {% endblock %}
