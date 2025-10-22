@@ -40,3 +40,11 @@ footer {
     text-decoration: none;
     color: black;
 }
+
+.nameNav {
+    font-family: "Slackey", sans-serif;
+    text-decoration: none;
+    font-size: 40px;
+    color: aliceblue;
+    padding-inline: 20px;
+}
