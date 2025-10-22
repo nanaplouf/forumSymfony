@@ -1,10 +1,8 @@
 @import url("https://fonts.googleapis.com/css2?family=Slackey&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Poiret+One&family=Slackey&display=swap");
 body {
-    background-image: url("/img/bgcat.jpeg");
-    background-repeat: no-repeat;
+    background-image: url("/img/bg.png");
     background-size: cover;
-    font-family: "Poiret One", sans-serif;
+    font-size: 20px;
 }
 
 h1,
@@ -12,10 +10,33 @@ h2,
 h3,
 h4,
 h5 {
-    color: rgb(55, 41, 32);
+    color: rgb(142, 51, 240);
     font-family: "Slackey", sans-serif;
-    background-color: rgba(240, 248, 255, 0.503);
     text-align: center;
-    padding-top: 15px;
-    padding-bottom: 15px;
+    padding: 20px;
+}
+
+.nav {
+    background-color: rgba(142, 51, 240, 0.949);
+}
+
+footer {
+    background-color: rgb(142, 51, 240);
+    color: black;
+    text-align: center;
+    padding-top: 60px;
+    padding-bottom: 50px;
+}
+
+.myBody {
+    margin: 4%;
+    padding: 3%;
+    background-color: rgba(250, 247, 255, 0.945);
+    min-height: 500px;
+    border-radius: 30px;
+}
+
+.pInFooter {
+    text-decoration: none;
+    color: black;
 }
