@@ -16,12 +16,11 @@ class TopicType extends AbstractType
         $builder
             ->add('title')
             ->add('description')
-            ->add('creation_date')
-            ->add('modification_date')
-            ->add('user', EntityType::class, [
-                'class' => User::class,
-                'choice_label' => 'id',
-            ])
+
+            // ->add('user', EntityType::class, [
+            //     'class' => User::class,
+            //     'choice_label' => 'id',
+            // ])
         ;
     }
 

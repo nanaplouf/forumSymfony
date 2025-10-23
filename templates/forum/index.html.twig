@@ -4,11 +4,10 @@
 
     
     {% if app.user %}
-        <h1>Bonjour,{{ app.user.pseudo }},  T'chaton ensemble ! 😺</h1>
+        <h1>Bonjour {{ app.user.pseudo }},  T'chaton ensemble ! 😺</h1>
     {% else %}
         <h1>Forum T'chaton ensemble ! 😺</h1>
-    {% endif %}
-
-        
+        <p class="text-center">Grrr, Tu peux te connecter ou t'inscrire pour miauler avec nous !<p>
+    {% endif %}    
 
 {% endblock %}

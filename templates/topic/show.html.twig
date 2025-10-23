@@ -8,11 +8,7 @@
     <table class="table">
         <tbody>
             <tr>
-                <th>Id</th>
-                <td>{{ topic.id }}</td>
-            </tr>
-            <tr>
-                <th>Title</th>
+                <th>Titre</th>
                 <td>{{ topic.title }}</td>
             </tr>
             <tr>
@@ -20,19 +16,19 @@
                 <td>{{ topic.description }}</td>
             </tr>
             <tr>
-                <th>Creation_date</th>
+                <th>Date de création</th>
                 <td>{{ topic.creationDate ? topic.creationDate|date('Y-m-d') : '' }}</td>
             </tr>
             <tr>
-                <th>Modification_date</th>
+                <th>Date de modification</th>
                 <td>{{ topic.modificationDate ? topic.modificationDate|date('Y-m-d') : '' }}</td>
             </tr>
         </tbody>
     </table>
 
-    <a href="{{ path('app_topic_index') }}">back to list</a>
+    <a href="{{ path('app_topic_index') }}">retour</a>
 
-    <a href="{{ path('app_topic_edit', {'id': topic.id}) }}">edit</a>
+    <a href="{{ path('app_topic_edit', {'id': topic.id}) }}" class="btn btn-warning">modifier</a>
 
     {{ include('topic/_delete_form.html.twig') }}
 {% endblock %}

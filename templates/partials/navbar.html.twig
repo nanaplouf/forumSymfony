@@ -9,19 +9,25 @@
                 <li class="nav-item">
                     <a class="nav-link text-bg-dark rounded-pill" aria-current="page" href="{{ path('app_about') }}"><i class="fa-solid fa-paw"></i> A propos</a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link text-bg-dark rounded-pill" aria-current="page" href="{{ path('app_topic_index') }}"><i class="fa-solid fa-paw"></i> Les sujets</a>
+                </li>
             </ul>
         </div>
         <div class="d-flex">
             <ul class="navbar-nav">
+            {% if app.user %}
+                <li class="nav-item m-1">
+                    <a class="nav-link text-bg-dark rounded-pill" aria-current="page" href="{{ path('app_logout') }}"><i class="fa-solid fa-poo"></i> Deconnexion</a>
+                </li>
+            {% else %}
                 <li class="nav-item m-1">
                     <a class="nav-link text-bg-light rounded-pill" aria-current="page" href="{{ path('app_register') }}"><i class="fa-solid fa-cat"></i> Inscription</a>
                 </li>
                 <li class="nav-item m-1">
                     <a class="nav-link text-bg-light rounded-pill" aria-current="page" href="{{ path('app_login') }}"><i class="fa-solid fa-heart"></i> Connexion</a>
                 </li>
-                <li class="nav-item m-1">
-                    <a class="nav-link text-bg-dark rounded-pill" aria-current="page" href="{{ path('app_logout') }}"><i class="fa-solid fa-poo"></i> Deconnexion</a>
-                </li>
+            {% endif %}
             </ul>
         </div>
     </div>
