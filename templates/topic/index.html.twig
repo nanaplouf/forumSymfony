@@ -3,28 +3,10 @@
 {% block body %}
     <h1>Les sujets</h1>
     {% for topic in topics %}
-        <div class="card m-3">
-            <div class="card-header">
-                <h2 class="fs-4">{{ topic.title }}</h2>
-            </div>
-            <div class="card-body">
-                <figure>
-                <blockquote class="blockquote">
-                    <p>{{ topic.description }}</p>
-                </blockquote>
-                <figcaption class="blockquote-footer">
-                    {{ topic.modificationDate ? topic.modificationDate|date('d-m-Y') : topic.creationDate|date('d-m-Y') }}
-                </figcaption>
-                </figure>
-            </div>
-            <div class="card-footer text-body-secondary">
-                <a href="{{ path('app_topic_show', {'id': topic.id}) }}" class="btn btn-info">voir +</a>
-                <a href="{{ path('app_topic_edit', {'id': topic.id}) }}" class="btn btn-warning">modifier</a>
-            </div>
-        </div>
+        <a href="{{ path('app_topic_show', {'id': topic.id}) }}" class="btn btn-dark col-12 m-2">{{ topic.title}}</a>
     {% else %}
         <p>Il n'y a pas encore de sujet</p>
     {% endfor %}
 
-    <a href="{{ path('app_topic_new') }}" class="btn btn-dark m-3">Créer</a>
+    <a href="{{ path('app_topic_new') }}" class="btn btn-info m-3">Créer</a>
 {% endblock %}
