@@ -30,6 +30,11 @@ final class TopicController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+
+            $topic->setUser($this->getUser());
+            $topic->setCreationDate(new \DateTime());
+
+
             $entityManager->persist($topic);
             $entityManager->flush();
 
@@ -45,8 +50,10 @@ final class TopicController extends AbstractController
     #[Route('/{id}', name: 'app_topic_show', methods: ['GET'])]
     public function show(Topic $topic): Response
     {
+        //dump($topic);
+
         return $this->render('topic/show.html.twig', [
-            'topic' => $topic,
+            'topic' => $topic
         ]);
     }
 
@@ -57,6 +64,7 @@ final class TopicController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            $topic->setModificationDate(new \DateTime());
             $entityManager->flush();
 
             return $this->redirectToRoute('app_topic_index', [], Response::HTTP_SEE_OTHER);
@@ -71,7 +79,7 @@ final class TopicController extends AbstractController
     #[Route('/{id}', name: 'app_topic_delete', methods: ['POST'])]
     public function delete(Request $request, Topic $topic, EntityManagerInterface $entityManager): Response
     {
-        if ($this->isCsrfTokenValid('delete'.$topic->getId(), $request->getPayload()->getString('_token'))) {
+        if ($this->isCsrfTokenValid('delete' . $topic->getId(), $request->getPayload()->getString('_token'))) {
             $entityManager->remove($topic);
             $entityManager->flush();
         }

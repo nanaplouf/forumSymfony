@@ -3,11 +3,9 @@
 {% block title %}Edit Topic{% endblock %}
 
 {% block body %}
-    <h1>Edit Topic</h1>
+    <h1>Modifier sujet</h1>
 
-    {{ include('topic/_form.html.twig', {'button_label': 'Update'}) }}
-
-    <a href="{{ path('app_topic_index') }}">back to list</a>
+    {{ include('topic/_form.html.twig', {'button_label': 'Modifier'}) }}
 
     {{ include('topic/_delete_form.html.twig') }}
 {% endblock %}
