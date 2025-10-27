@@ -16,7 +16,9 @@
     {% endif %}
 
     <h2>Commentaires :</h2>
-    <a href="{{ path('app_comment_new', {'id': topic.id})}}" class="btn btn-dark"><i class="fa-solid fa-comment"></i> Ajout un commentaire</a>
+    {% if app.user %}
+        <a href="{{ path('app_comment_new', {'topicId': topic.id}) }}" class="btn btn-dark"><i class="fa-solid fa-comment"></i> Ajout un commentaire</a>
+    {% endif %}
 
     {% for comment in topic.comments %}
         <p>{{ comment.message }}<p>
