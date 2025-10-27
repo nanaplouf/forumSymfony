@@ -50,7 +50,6 @@ final class TopicController extends AbstractController
     #[Route('/{id}', name: 'app_topic_show', methods: ['GET'])]
     public function show(Topic $topic): Response
     {
-        //dump($topic);
 
         return $this->render('topic/show.html.twig', [
             'topic' => $topic

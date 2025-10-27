@@ -16,16 +16,16 @@ class CommentType extends AbstractType
     {
         $builder
             ->add('message')
-            ->add('creation_date')
-            ->add('modification_date')
-            ->add('user', EntityType::class, [
-                'class' => User::class,
-                'choice_label' => 'id',
-            ])
-            ->add('topic', EntityType::class, [
-                'class' => Topic::class,
-                'choice_label' => 'id',
-            ])
+            // ->add('creation_date')
+            // ->add('modification_date')
+            // ->add('user', EntityType::class, [
+            //     'class' => User::class,
+            //     'choice_label' => 'id',
+            // ])
+            // ->add('topic', EntityType::class, [
+            //     'class' => Topic::class,
+            //     'choice_label' => 'id',
+            // ])
         ;
     }
 

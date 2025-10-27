@@ -30,11 +30,23 @@ final class CommentController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            // Associe l'utilisateur au commentaire
+            $comment->setUser($this->getUser());
+            // Définit la date de création
+            $comment->setCreationDate(new \DateTime());
+
+
             $entityManager->persist($comment);
             $entityManager->flush();
 
-            return $this->redirectToRoute('app_comment_index', [], Response::HTTP_SEE_OTHER);
-        }
+            // Récupère le Topic associé au message
+            $topic = $comment->getTopic();
+            dump($topic);
+
+            return $this->redirectToRoute('app_topic_show', [
+                'id' => $topic->getId(),
+            ], Response::HTTP_SEE_OTHER);
+        };
 
         return $this->render('comment/new.html.twig', [
             'comment' => $comment,
@@ -71,7 +83,7 @@ final class CommentController extends AbstractController
     #[Route('/{id}', name: 'app_comment_delete', methods: ['POST'])]
     public function delete(Request $request, Comment $comment, EntityManagerInterface $entityManager): Response
     {
-        if ($this->isCsrfTokenValid('delete'.$comment->getId(), $request->getPayload()->getString('_token'))) {
+        if ($this->isCsrfTokenValid('delete' . $comment->getId(), $request->getPayload()->getString('_token'))) {
             $entityManager->remove($comment);
             $entityManager->flush();
         }
