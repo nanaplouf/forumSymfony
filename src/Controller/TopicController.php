@@ -75,7 +75,7 @@ final class TopicController extends AbstractController
         ]);
     }
 
-    #[Route('/{id}', name: 'app_topic_delete', methods: ['POST'])]
+    #[Route('/delete/{id}', name: 'app_topic_delete', methods: ['POST'])]
     public function delete(Request $request, Topic $topic, EntityManagerInterface $entityManager): Response
     {
         if ($this->isCsrfTokenValid('delete' . $topic->getId(), $request->getPayload()->getString('_token'))) {

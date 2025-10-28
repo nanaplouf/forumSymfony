@@ -36,8 +36,10 @@ security:
     access_control:
         # - { path: ^/admin, roles: ROLE_ADMIN }
         # - { path: ^/profile, roles: ROLE_USER }
-        - { path: ^/topic, roles: ROLE_USER }
-        - { path: ^/message, roles: ROLE_USER }
+        - { path: ^/topic/new, roles: ROLE_USER }
+        - { path: ^/topic/[0-9]+/edit$, roles: ROLE_USER }
+        - { path: ^/topic/delete/[0-9]$, roles: ROLE_USER }
+        - { path: ^/comment, roles: ROLE_USER }
 
 when@test:
     security:

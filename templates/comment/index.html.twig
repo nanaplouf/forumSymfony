@@ -8,28 +8,28 @@
     <table class="table">
         <thead>
             <tr>
-                <th>Id</th>
                 <th>Message</th>
-                <th>Creation_date</th>
-                <th>Modification_date</th>
-                <th>actions</th>
+                <th>Sujet</th>
+                <th>Date de creation ou modification</th>
+                <th>Autheur</th>
+                <th>Actions</th>
             </tr>
         </thead>
         <tbody>
         {% for comment in comments %}
             <tr>
-                <td>{{ comment.id }}</td>
                 <td>{{ comment.message }}</td>
-                <td>{{ comment.creationDate ? comment.creationDate|date('Y-m-d') : '' }}</td>
-                <td>{{ comment.modificationDate ? comment.modificationDate|date('Y-m-d') : '' }}</td>
+                <td>{{ comment.topic.title }}</td>
+                <td>{{ comment.modificationDate ? comment.modificationDate|date('Y-m-d') : comment.creationDate|date('Y-m-d')  }}</td>
+                <td>{{ comment.user.pseudo }}</td>
                 <td>
-                    <a href="{{ path('app_comment_show', {'id': comment.id}) }}">voir</a>
-                    ajout btn supp
+                    <a class="btn btn-info mb-2" href="{{ path('app_comment_show', {'id': comment.id}) }}"><i class="fa-solid fa-eye"></i> Voir <i class="fa-solid fa-plus"></i></a>
+                    {{ include('comment/_delete_form.html.twig') }}
                 </td>
             </tr>
         {% else %}
             <tr>
-                <td colspan="5">no records found</td>
+                <td colspan="5">Pas de commentaire</td>
             </tr>
         {% endfor %}
         </tbody>

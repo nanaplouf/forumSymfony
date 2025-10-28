@@ -13,9 +13,11 @@
                     <a class="nav-link text-bg-dark rounded-pill" aria-current="page" href="{{ path('app_topic_index') }}"><i class="fa-solid fa-paw"></i> Les sujets</a>
                 </li>
                 {# //si c'est un admin il voit le btn #}
-                <li class="nav-item">
-                    <a class="nav-link text-bg-dark rounded-pill" aria-current="page" href="{{ path('app_comment_index') }}"><i class="fa-solid fa-paw"></i> Les commentaires</a>
-                </li>
+                {% if is_granted('ROLE_ADMIN') %}
+                    <li class="nav-item">
+                        <a class="nav-link text-bg-dark rounded-pill" aria-current="page" href="{{ path('app_comment_index') }}"><i class="fa-solid fa-paw"></i> Les commentaires</a>
+                    </li>
+                {% endif %}
             </ul>
         </div>
         <div class="d-flex">
